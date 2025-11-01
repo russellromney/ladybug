@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/LadybugDB/ladybug/actions">
     <img src="https://github.com/LadybugDB/ladybug/actions/workflows/ci-workflow.yml/badge.svg?branch=master" alt="Github Actions Badge"></a>
-  <a href="https://discord.gg/VtX2gw9Rug">
+  <a href="https://discord.com/invite/hXyHmvW3Vy">
     <img src="https://img.shields.io/discord/1196510116388806837?logo=discord" alt="discord" /></a>
   <a href="https://twitter.com/lbugdb">
     <img src="https://img.shields.io/badge/follow-@lbugdb-1DA1F2?logo=twitter" alt="twitter"></a>
@@ -44,12 +44,12 @@ The database was formerly known as [Kuzu](https://github.com/kuzudb/kuzu).
 
 | Language | Installation                                                           |
 | -------- |------------------------------------------------------------------------|
-| Python   | `pip install lbug`                                                     |
+| Python   | `pip install real_ladybug`                                                     |
 | NodeJS   | `npm install lbug`                                                     |
 | Rust     | `cargo add lbug`                                                       |
 | Go       | `go get github.com/lbugdb/go-lbug`                                     |
 | Swift    | [lbug-swift](https://github.com/lbugdb/lbug-swift)                     |
-| Java     | [Maven Central](https://central.sonatype.com/artifact/com.lbugdb/lbug) |
+| Java     | [Maven Central](https://central.sonatype.com/artifact/com.ladybugdb/lbug) |
 | C/C++    | [precompiled binaries](https://github.com/LadybugDB/ladybug/releases/latest) |
 | CLI      | [precompiled binaries](https://github.com/LadybugDB/ladybug/releases/latest) |
 
