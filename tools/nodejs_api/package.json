@@ -12,7 +12,7 @@
       "types": "./lbug.d.ts"
     }
   },
-  "files": ["index.js", "index.mjs", "lbug.d.ts", "lbugjs.node"],
+  "files": ["index.js", "index.mjs", "lbug.d.ts", "lbugjs.node", "lbugjs.symbols"],
   "type": "commonjs",
   "homepage": "https://ladybugdb.com/",
   "repository": {

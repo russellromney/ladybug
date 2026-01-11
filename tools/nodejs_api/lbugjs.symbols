@@ -1,0 +1,14 @@
+{
+  global:
+    napi_*;
+    _napi_*;
+    _ZN4lbug*;
+    _ZNK4lbug*;
+    _ZTS4lbug*;
+    _ZTSN4lbug*;
+    _ZTI4lbug*;
+    _ZTIN4lbug*;
+    _ZTVN4lbug*;
+  local:
+    *;
+};

@@ -56,6 +56,6 @@ set_target_properties(lbugjs
 if(APPLE)
   target_link_options(lbugjs PRIVATE -undefined dynamic_lookup)
 else()
-  target_link_options(lbugjs PRIVATE -Wl,--export-dynamic)
+  target_link_options(lbugjs PRIVATE -Wl,--version-script=${CMAKE_CURRENT_LIST_DIR}/lbugjs.symbols)
 endif()
 target_link_libraries(lbugjs PRIVATE lbug ${CMAKE_JS_LIB})
