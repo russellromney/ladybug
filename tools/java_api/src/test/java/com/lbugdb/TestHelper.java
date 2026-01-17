@@ -3,10 +3,15 @@ package com.ladybugdb;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TestHelper {
     private static Database db;
     private static Connection conn;
+    private final static String tinysnbDir = "../../dataset/tinysnb/";
+    private final static String extensions = "csv|parquet|npy|ttl|nq|json|lbug_extension";
+    private final static Pattern dataFileRegex = Pattern.compile("\"([^\"]+\\.(" + extensions + "))\"", Pattern.CASE_INSENSITIVE);
 
     public static Database getDatabase() {
         return db;
@@ -21,30 +26,33 @@ public class TestHelper {
         db = new Database(dbPath);
         conn = new Connection(db);
 
-        reader = new BufferedReader(new FileReader("../../dataset/tinysnb/schema.cypher"));
         String line;
-        do {
-            line = reader.readLine();
-            if (line == null) {
-                break;
+
+        reader = new BufferedReader(new FileReader(tinysnbDir + "schema.cypher"));
+        while ((line = reader.readLine()) != null) {
+            line = line.trim();
+            if (line.isEmpty()) {
+                continue;
             }
-            line = line.replace("dataset/tinysnb", "../../dataset/tinysnb");
             try (QueryResult result = conn.query(line)) {
             }
-        } while (line != null);
+        }
         reader.close();
 
 
-        reader = new BufferedReader(new FileReader("../../dataset/tinysnb/copy.cypher"));
-        do {
-            line = reader.readLine();
-            if (line == null) {
-                break;
+        reader = new BufferedReader(new FileReader(tinysnbDir + "copy.cypher"));
+        while ((line = reader.readLine()) != null) {
+            line = line.trim();
+            if (line.isEmpty()) {
+                continue;
             }
-            line = line.replace("dataset/tinysnb", "../../dataset/tinysnb");
-            try (QueryResult result = conn.query(line)) {
-            }
-        } while (line != null);
+
+            // handle multiple data files in one statement
+            Matcher matcher = dataFileRegex.matcher(line);
+            String statement = matcher.replaceAll("\"" + tinysnbDir + "$1\"");
+
+            try (QueryResult result = conn.query(statement)) {}
+        }
         reader.close();
 
 
